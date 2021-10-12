@@ -1,0 +1,102 @@
+
+<div class="form">
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left-header">
+          <p class="FormField-label primary">Saved User Details</p>
+        </div>
+        <div class="form-col-right">
+        <div class="tooltip" data-direction="bottom">
+          <div class="tooltip__initiator">
+            <a class="nav-link" (click)="onClickEdit()"><span *ngIf="activateEdit" class="icon-Edit">Edit</span></a>
+          </div>
+        </div>
+      </div>
+      </div>
+  
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Full Name</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right">
+          <div class="input-wrap">
+            <input type="text" readonly class="form-control FormInput input_box" style="outline: none;" [value]='data.fullName'>
+          </div>
+        </div>
+      </div>
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Age</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width">
+  
+          <div class="input-wrap">
+            <input type="text" readonly class="form-control FormInput input_box" [value]='data.age' style="outline: none;">
+          </div>
+        </div>
+      </div>
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Gender</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width">
+  
+          <div class="input-wrap" style="display: flex; align-items: center;">
+            <input type="text" readonly style="outline: none;" class="form-control input_box" style="min-width: auto;" [value]='data.gender'>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Address</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width" >
+  
+          <div class="input-wrap">
+            <textarea rows="5" cols="60" readonly style="outline: none;" class="form-control FormInput input_box" [value]='data.address'></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Email</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width">
+  
+          <div class="input-wrap">
+            <input type="text" readonly style="outline: none;" class="form-control FormInput input_box" [value]='data.email'>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Phone Number</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width">
+  
+          <div class="input-wrap">
+            <input type="tel" readonly style="outline: none;" class="form-control FormInput input_box"  [value]='data.phoneNumber'>
+          </div>
+        </div>
+      </div>
+</div>

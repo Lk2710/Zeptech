@@ -1,0 +1,144 @@
+<div *ngIf='!submitted' class="form">
+    <form [formGroup]="connectionForm">
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left-header">
+          <p class="FormField-label primary">User Details</p>
+        </div>
+        <!-- <div class="form-col-right">
+          <div class="tooltip" data-direction="bottom">
+            <div class="tooltip__initiator">
+              <a class="nav-link" (click)="onClickEdit()"><span *ngIf="accountOverviewAccess" class="icon-Edit"></span></a>
+            </div>
+          </div>
+        </div> -->
+      </div>
+  
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Full Name</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right">
+          <div class="input-wrap">
+            <input type="text" class="form-control FormInput" formControlName="fullName"
+              [ngClass]="{ 'is-invalid': submitted && value.fullName.errors}">
+              <div *ngIf="submitted && value.fullName.errors" class="invalid-feedback">
+              <div *ngIf="value.fullName.errors.required">Full Name is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Age</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width">
+  
+          <div class="input-wrap">
+            <input type="text" class="form-control FormInput" formControlName="age"
+              [ngClass]="{ 'is-invalid': submitted && value.age.errors }">
+            <div *ngIf="submitted && value.age.errors" class="invalid-feedback">
+              <div *ngIf="value.age.errors.required">Age is required</div>
+              <div *ngIf="value.age.errors.pattern">Age must be number</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Gender</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width">
+  
+          <div class="input-wrap" style="display: flex; align-items: center;">
+            <input type="radio" id="male" class="form-control" style="min-width: auto;" name='gender' formControlName="gender"
+              [ngClass]="{ 'is-invalid': submitted && value.gender.errors}" value="Male">
+            <label for='male' class="">Male</label>  
+            <input type="radio" id='female' class="form-control" style="min-width: auto;" name='gender' formControlName="gender"
+              [ngClass]="{ 'is-invalid': submitted && value.gender.errors}" value="Female">
+            <label for='female' >Female</label>
+            <div *ngIf="submitted && value.gender.errors" class="invalid-feedback">
+              <div *ngIf="value.gender.errors.required">Please select any one</div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Address</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width" >
+  
+          <div class="input-wrap">
+            <textarea rows="5" cols="60" class="form-control FormInput" formControlName="address"
+              [ngClass]="{ 'is-invalid': submitted && value.address.errors}"></textarea>
+            <div *ngIf="submitted && value.address.errors" class="invalid-feedback">
+              <div *ngIf="value.address.errors.required">Address is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Email</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width">
+  
+          <div class="input-wrap">
+            <input type="text" class="form-control FormInput" formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && value.email.errors}">
+            <div *ngIf="submitted && value.email.errors" class="invalid-feedback">
+              <div *ngIf="value.email.errors.required">Email is required</div>
+              <div *ngIf="value.email.errors.email">Email must be a valid email address</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group form-row align-baseline">
+        <div class=" form-col-left">
+          <p class="FormField-label">Phone Number</p>
+          <div class="u-size1of10">
+            <span>:</span>
+          </div>
+        </div>
+        <div class="form-col-right edit-width">
+  
+          <div class="input-wrap">
+            <input type="tel" class="form-control FormInput" formControlName="phoneNumber"
+              [ngClass]="{ 'is-invalid': submitted && value.phoneNumber.errors}">
+            <div *ngIf="submitted && value.phoneNumber.errors" class="invalid-feedback">
+              <div *ngIf="value.phoneNumber.errors.required">Phone number is required</div>
+              <div *ngIf="value.phoneNumber.errors.pattern">Phone number must be number</div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="personal-action-wrap">
+  
+        <button type="button" class="btn-save" (click)="onClickSave()">Save</button>
+        <button type="button" class="btn-cancel" (click)="onClickCancel()">Cancel</button>
+  
+      </div>
+    </form>
+</div>
+<div *ngIf='submitted && dataObj'>
+  <app-show-details [data] ="dataObj"></app-show-details>
+</div>
