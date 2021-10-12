@@ -8,8 +8,9 @@
     </a>
 </div>
 <div class="content">
-  <app-details-form *ngIf="activateTask1"></app-details-form>
-  <app-details-form *ngIf="activateTask2" [dataObj]='jsonObj' (sendEditEvent)="activateTask1"></app-details-form>
+  <app-details-form *ngIf="activateTask1" (emitData)="changeToShow($event)"></app-details-form>
+  <app-details-form *ngIf="activateTask2" [dataObj]='jsonObj' (emitData)="changeToShow($event)"></app-details-form>
+  <app-show-details *ngIf="activateshow" [data]='jsonObj'></app-show-details>
 </div>
 
 <router-outlet></router-outlet>

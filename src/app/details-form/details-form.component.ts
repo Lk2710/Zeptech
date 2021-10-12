@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 
 @Component({
@@ -6,13 +6,17 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
   templateUrl: './details-form.component.html',
   styleUrls: ['./details-form.component.scss']
 })
-export class DetailsFormComponent implements OnInit {
+export class DetailsFormComponent implements OnInit,OnChanges {
 
   constructor(public fb: FormBuilder) { }
   public accountOverviewAccess=true;
   public connectionForm: FormGroup = 0 as any;
   @Input() dataObj=0 as any;
+  @Output() emitData = new EventEmitter<any>();
   public submitted=false;
+  ngOnChanges(change:SimpleChanges){
+    console.log(this.dataObj)
+  }
   ngOnInit(){
     this.connectionForm = this.fb.group({
       'fullName':[this.dataObj?this.dataObj.fullName:'',[Validators.required]],
@@ -32,6 +36,7 @@ export class DetailsFormComponent implements OnInit {
       return;
     }
     this.dataObj = this.connectionForm.value;
+    this.emitData.emit(this.dataObj);
   }
   onClickCancel(){
     this.connectionForm = this.fb.group({
